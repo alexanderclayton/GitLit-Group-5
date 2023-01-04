@@ -15,9 +15,13 @@ Topic.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        author: {
+        username: {
             type: DataTypes.STRING,
             allowNull: false,
+            references: {
+                model: 'user',
+                key: 'username',
+            }
         },
         timestamp: {
             type: DataTypes.DATE,

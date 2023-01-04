@@ -1,0 +1,23 @@
+<div class="topic-card">
+    <div class="topic-placeholder-one">
+        <h2>
+            {{ topic.title }}
+        </h2>
+    </div>
+    <div class="topic-placeholder-two">
+        <p> {{ topic.username }} </p>
+        <p> {{ topic.timestamp }} </p>
+    </div>
+    <div class="topic-placeholder-two">
+        <p> {{ topic.content }} </p>
+    </div>
+</div>
+<div class="comment-cards">
+    {{#each comments as |comment|}}
+        <div class="comment-placeholder-one">
+            <p> {{ comment.content }} </p>
+            <p>--{{ comment.username }}</p>
+            <p> {{ comment.timestamp }}</p>
+        </div>
+    {{/each}}
+</div>
