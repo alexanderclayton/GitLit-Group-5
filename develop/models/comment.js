@@ -11,9 +11,13 @@ Comment.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        author: {
+        username: {
             type: DataTypes.STRING,
             allowNull: false,
+            references: {
+                model: 'user',
+                key: 'username',
+            }
         },
         content: {
             type: DataTypes.STRING,
@@ -23,6 +27,14 @@ Comment.init(
             type: DataTypes.DATE,
             allowNull: false,
         },
+        topic_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: 'topic',
+                key: 'id',
+            }
+        }
     },
     {
         sequelize,
@@ -31,4 +43,4 @@ Comment.init(
     }
 );
 
-module.exports = Comment;op
+module.exports = Comment;
