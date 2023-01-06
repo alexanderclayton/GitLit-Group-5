@@ -1,19 +1,22 @@
+const signup = document.getElementById('signup');
+const login = document.getElementById('login');
+
 const loginForm = async (event) => {
     event.preventDefault();
 
-    const email = document.getElementById(PLACEHOLDER_EMAIL_HTML_ID).value.trim();
-    const password = document.getElementById(PLACEHOLDER_PASSWORD_HTML_ID).value.trim();
+    const email = document.getElementById('email-textarea').value.trim();
+    const password = document.getElementById('password-textarea').value.trim();
 
     if (email && password) {
 
-        const response = await fetch(PLACEHOLDER_USER_API_LOCATION, {
+        const response = await fetch('/api/users/login', {
             method: 'POST',
             body: JSON.stringify({email, password }),
             headers: { 'Content-Type': 'application/json' },
         });
 
         if (response.ok) {
-            document.location.replace(PLACEHOLDER_REDIRECT_URL);
+            document.location.replace('/');
         } else {
             alert(response.statusText);
         }
@@ -23,19 +26,19 @@ const loginForm = async (event) => {
 const signupForm = async (event) => {
     event.preventDefault();
 
-    const name = document.getElementById(PLACEHOLDER_NAME_HTML_ID).value.trim();
-    const email = document.getElementById(PLACEHOLDER_EMAIL_HTML_ID).value.trim();
-    const password = document.getElementById(PLACEHOLDER_PASSWORD_HTML_ID).value.trim();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value.trim();
 
     if (name && email && password) {
-        const response = await fetch(PLACEHOLDER_USER_API_LOCATION, {
+        const response = await fetch('/api/users', {
             method: 'POST',
             body: JSON.stringify({ name, email, password }),
             headers: { 'Content-Type': 'application/json' },
         });
 
         if (response.ok) {
-            document.location.replace(PLACEHOLDER_REDIRECT_URL)
+            document.location.replace('/')
         } else {
             alert(response.statusText);
         }
@@ -55,6 +58,20 @@ const logoutButton = async () => {
     }
 };
 
-document.getElementById(PLACEHOLDER_LOGIN_HTML_ID).addEventListener('submit', loginForm);
-document.getElementById(PLACEHOLDER_LOGOUT_HTML_ID).addEventListener('click', logoutButton);
-document.getElementById(PLACEHOLDER_SIGNUP_HTML_ID).addEventListener('submit', signupForm);
+if(login) {
+    login.addEventListener('click', loginForm)
+}
+// document.getElementById(PLACEHOLDER_LOGOUT_HTML_ID).addEventListener('click', logoutButton);
+if(signup) {
+    signup.addEventListener('click', signupForm);
+}
+
+document.getElementById('signup-btn').addEventListener('click', function(e) {
+    e.preventDefault()
+    document.location.replace('/signup')
+})
+
+document.getElementById('login-btn').addEventListener('click', function(e) {
+    e.preventDefault()
+    document.location.replace('/login')
+})

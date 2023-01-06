@@ -39,4 +39,4 @@ Topic.init(
     }
 );
 
-module.exports = Topic
+module.exports = Topic;

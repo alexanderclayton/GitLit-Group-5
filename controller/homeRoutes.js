@@ -5,19 +5,13 @@ const withAuth = require('../utils/auth');
 router.get('/', withAuth, async (req, res) => {
     try {
         const dbTopicData = await Topic.findAll({
-            include: [
-                {
-                    model: Topic,
-                    attributes: ['title', 'username', 'timestamp', 'content'],
-                }
-            ]
         });
 
         const topics = dbTopicData.map((topic) =>
         topic.get({ plain: true })
         );
 
-        res.render('homepage', {
+        res.render('topics', {
             topics,
             logged_in: req.session.logged_in
         });
@@ -29,6 +23,10 @@ router.get('/', withAuth, async (req, res) => {
 
 router.get('/login', async (req, res) => {
    res.render('login');
+})
+
+router.get('/signup', async (req, res) => {
+    res.render('signup');
 })
 
 router.get('topic/:id', withAuth, async (req, res) => {
