@@ -23,10 +23,6 @@ Comment.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        timestamp: {
-            type: DataTypes.DATE,
-            allowNull: false,
-        },
         topic_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
