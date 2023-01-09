@@ -34,10 +34,12 @@ const isTweet = _.conforms({
 const router = require('express').Router();
 const userRoutes = require('./userRoutes');
 const topicRoutes = require('./topicRoutes');
+const commentRoutes = require('./commentRoutes');
 // const projectRoutes = require('./projectRoutes');
 
 router.use('/users', userRoutes);
 router.use('/topics', topicRoutes);
+router.use('/comments', commentRoutes);
 // router.use('/projects', projectRoutes);
 
 

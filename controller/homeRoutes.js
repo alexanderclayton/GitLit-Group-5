@@ -30,6 +30,15 @@ router.get('/api/topics', async (req, res) => {
     }
 });
 
+router.get('/api/comments', async (req, res) => {
+    try {
+        const comments = await Comment.findAll();
+        res.status(200).json(comments);
+    } catch (err) {
+        res.status(400).json(err)
+    }
+});
+
 router.get('/login', async (req, res) => {
    res.render('login');
 });
@@ -46,9 +55,13 @@ router.get('/newTopic', withAuth, async (req, res) => {
     res.render('newTopic');
 });
 
+router.get('/comment', withAuth, async (req, res) => {
+    res.render('comment');
+});
+
 router.get('/topic/:id', /*withAuth,*/ async (req, res) => {
     try {
-        const dbTopicData = await Topic.findByPk(req.params.id, {
+        const dbTopicData = await Topic.findByPk(req.params.id, { //findAll instead of findByPk?
             include: [
                 {
                     model: Comment,
