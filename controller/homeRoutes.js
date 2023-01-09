@@ -61,31 +61,49 @@ router.get('/comment', withAuth, async (req, res) => {
 
 router.get('/topic/:id', /*withAuth,*/ async (req, res) => {
     try {
-        const dbTopicData = await Topic.findByPk(req.params.id, { //findAll instead of findByPk?
-            include: [
-                {
-                    model: Comment,
-                    attributes: 
-                        [
-                            'comment_username',
-                            'comment_content',
-                        ],
-                    where: {
-                        topic_id: req.params.id
-                    }
-                },
-            ],
+        const dbTopicData = await Topic.findByPk(req.params.id);
+
+        const dbComments = await Comment.findAll({
+            where: { topic_id: req.params.id }
         });
 
         const topic = dbTopicData.get({ plain: true });
 
+        const comments = dbComments.map(comment => comment.get({ plain: true }))
+
         res.render('topicThread', {
             ...topic,
-            comments: topic.comments,
+            comments: comments,
             logged_in: req.session.logged_in
         });
 
-        console.log(topic.comments)
+        // router.get('/topic/:id', /*withAuth,*/ async (req, res) => {
+        //     try {
+        //         const dbTopicData = await Topic.findByPk(req.params.id, { //findAll instead of findByPk?
+        //             include: [
+        //                 {
+        //                     model: Comment,
+        //                     attributes: 
+        //                         [
+        //                             'comment_username',
+        //                             'comment_content',
+        //                         ],
+        //                     where: {
+        //                         topic_id: req.params.id
+        //                     }
+        //                 },
+        //             ],
+        //         });
+        
+        //         const topic = dbTopicData.get({ plain: true });
+        
+        //         console.log(topic.comments)
+        
+        //         res.render('topicThread', {
+        //             ...topic,
+        //             comments: topic.comments,
+        //             logged_in: req.session.logged_in
+        //         });
     
     } catch (err) {
         res.status(500).json(err)
