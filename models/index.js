@@ -3,12 +3,12 @@ const Topic = require('./Topic');
 const Comment = require('./Comment');
 
 Topic.hasMany(Comment, {
-    foreignKey: 'topic_id',
+    foreignKey: 'id',
     onDelete: 'cascade'
 });
 
 Comment.belongsTo(Topic, {
-    foreignKey: 'topic_id'
+    foreignKey: 'id'
 });
 
 User.hasMany(Topic, {
@@ -20,11 +20,11 @@ Topic.belongsTo(User, {
 });
 
 User.hasMany(Comment, {
-    foreignKey: 'username'
+    foreignKey: 'comment_username'
 });
 
 Comment.belongsTo(User, {
-    foreignKey: 'username'
+    foreignKey: 'comment_username'
 })
 
 module.exports = { User, Topic, Comment};
