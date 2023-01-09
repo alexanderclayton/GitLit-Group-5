@@ -1,5 +1,8 @@
+<button id="signup-btn">Sign Up</button>
+<button id="login-btn">Login</button>
+
 {{#each topics as |topic|}}
-    <div class="card w-100 bg-light bg-opacity-75">
+    <div class="topic-card card w-100 bg-light bg-opacity-75">
         <h5 class="card-header">{{ topic.author }}</h5>
         <div class="card-body">
           <h5 class="card-title">{{ topic.title }}</h5>
@@ -8,3 +11,5 @@
         </div>
     </div>
 {{/each}}
+
+<button id="newTopic-btn">Add a new Topic</button>

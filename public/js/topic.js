@@ -1,11 +1,15 @@
 const createTopic = document.getElementById('createTopic');
+const newTopicBtn = document.getElementById('newTopic-btn');
 
 const newTopic = async (event) => {
     event.preventDefault();
 
+    const user = "current user" //need to use the current user for this
+    console.log(user);
     const title = document.getElementById('title').value.trim();
-    const user = "newUser";
     const content = document.getElementById('content').value.trim();
+
+    console.log(title, user, content)
 
     if (title && user && content){
         const response = await fetch('api/topics', {
@@ -15,17 +19,19 @@ const newTopic = async (event) => {
         });
 
         if (response.ok) {
-            document.location.reload();
+            document.location.replace('/');
         } else {
             alert(response.statusText);
         }
     }
 };
 
-document.getElementById('newTopic-btn').addEventListener('click', function(e) {
+if(newTopicBtn) {
+newTopicBtn.addEventListener('click', function(e) {
     e.preventDefault();
     document.location.replace('/newTopic')
 });
+}
 
 if(createTopic){
 createTopic.addEventListener('click', newTopic);
