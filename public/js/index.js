@@ -1,4 +1,4 @@
-const topicCard = document.getElementsByClassName('topic-placeholder-class-two');
+const topicCard = document.getElementsByClassName('topic-card');
 
 if(topicCard) {
     for (i=0; i < topicCard.length; i++) {
