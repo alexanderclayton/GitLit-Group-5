@@ -1,6 +1,8 @@
 const signup = document.getElementById('signup');
 const login = document.getElementById('login');
 const backToMain = document.getElementById('back');
+const signUpBtn = document.getElementById('signup-btn');
+const logoutBtn = document.getElementById('login-btn');
 
 const loginForm = async (event) => {
     event.preventDefault();
@@ -74,12 +76,16 @@ if(backToMain) {
     })
 }
 
-document.getElementById('signup-btn').addEventListener('click', function(e) {
-    e.preventDefault()
-    document.location.replace('/signup')
-})
+if(signUpBtn) {
+    signUpBtn.addEventListener('click', function(e) {
+        e.preventDefault()
+        document.location.replace('/signup')
+    })
+}
 
-document.getElementById('login-btn').addEventListener('click', function(e) {
+if(logoutBtn) {
+logoutBtn.addEventListener('click', function(e) {
     e.preventDefault()
     document.location.replace('/login')
 })
+}

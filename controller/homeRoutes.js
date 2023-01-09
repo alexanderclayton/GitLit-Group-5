@@ -59,6 +59,10 @@ router.get('/comment', withAuth, async (req, res) => {
     res.render('comment');
 });
 
+router.get('/logout', async (req, res) => {
+    res.render('logout');
+})
+
 router.get('/topic/:id', /*withAuth,*/ async (req, res) => {
     try {
         const dbTopicData = await Topic.findByPk(req.params.id);

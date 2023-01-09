@@ -6,7 +6,7 @@ const createComment = document.getElementById('createComment');
 const newTopic = async (event) => {
     event.preventDefault();
 
-    const user = "current user" //need to use the current user for this
+    const user = "test1" //need to use the current user for this
     console.log(user);
     const title = document.getElementById('title').value.trim();
     const content = document.getElementById('content').value.trim();
@@ -33,7 +33,7 @@ const newComment = async (event) => {
 
     const user = "test1"  //need to use the current user for this
     const content = document.getElementById('comment-content').value.trim();
-    const topic_id = parseInt(1)  //need to use the current topic for this
+    const topic_id = 1  //need to use the current topic for this
 
     console.log(user, content, topic_id)
 
@@ -45,7 +45,7 @@ const newComment = async (event) => {
         });
 
         if (response.ok) {
-            document.location.replace('/');  //will need to change this path
+            document.location.replace('/topic/1');  //will need to change this path
         } else {
             alert(response.statusText);
         }
