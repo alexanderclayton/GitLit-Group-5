@@ -55,6 +55,7 @@ const newComment = async (event) => {
 if(newTopicBtn) {
 newTopicBtn.addEventListener('click', function(e) {
     e.preventDefault();
+    console.log('topic clicks')
     document.location.replace('/newTopic')
 });
 }
