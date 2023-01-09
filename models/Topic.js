@@ -23,10 +23,6 @@ Topic.init(
                 key: 'username',
             }
         },
-        timestamp: {
-            type: DataTypes.DATE,
-            allowNull: false,
-        },
         content: {
             type: DataTypes.STRING,
             allowNull: false,

@@ -1,0 +1,17 @@
+[
+    {
+        "comment_username": "test4",
+        "comment_content": "His power level is over 9000!!",
+        "topic_id": 1
+    },
+    {
+        "comment_username": "test5",
+        "comment_content": "I want to believe.",
+        "topic_id": 2
+    },
+    {
+        "comment_username": "test6",
+        "comment_content": "How old is this show?!",
+        "topic_id": 3
+    }
+]

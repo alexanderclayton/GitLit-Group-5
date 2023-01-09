@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User, Topic, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', withAuth, async (req, res) => {
+router.get('/', /*withAuth,*/ async (req, res) => {
     try {
         const dbTopicData = await Topic.findAll({
         });
@@ -29,25 +29,28 @@ router.get('/signup', async (req, res) => {
     res.render('signup');
 })
 
-router.get('topic/:id', withAuth, async (req, res) => {
+router.get('/thankYou', async (req, res) => {
+    res.render('thankYou');
+})
+
+router.get('/topic/:id', /*withAuth,*/ async (req, res) => {
     try {
         const dbTopicData = await Topic.findByPk(req.params.id, {
             include: [
                 {
-                    model: Topic,
-                    attributes: [
-                        'title',
-                        'username',
-                        'timestamp',
-                        'content',
-                    ],
+                    model: Comment,
+                    attributes: 
+                        [
+                            'comment_username',
+                            'comment_content',
+                        ],
                 },
             ],
         });
 
         const topic = dbTopicData.get({ plain: true });
 
-        res.render('topic', {
+        res.render('topicThread', {
             ...topic,
             logged_in: req.session.logged_in
         });
