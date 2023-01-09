@@ -5,29 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GitLit Group 5</title>
-    <link rel="stylesheet" href="../../public/css/style.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </head>
-<body>
-    <div class="main-placeholder-class-one">
-        <header class="main-placeholder-class-two">
-            <div class="header-div-placeholder">
-                {{!-- I want specific attributes from the topic model here...  --}}
-                {{{ body }}}
+<body class="bg-dark bg-gradient">
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid justify-content-evenly">
+            <button class="btn btn-outline-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand ms-2" href="#">GitLit Group 5</a>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-primary" type="submit">Search</button>
+            </form>
+            <div>
+                <button class="btn btn-outline-primary" type="submit">Login</button>
+                <button class="btn btn-outline-primary" type="submit">Sign Up</button>
+                <button class="btn btn-outline-primary d-none" type="submit">Logout</button>
             </div>
-            <nav>
-                <button id="login-btn">login</button>
-                <button id="signup-btn">Sign Up</button>
-            </nav>
-        </header>
-        <main class="main-placeholder-class-three">
-            <div class="body-div-one">
-                {{!-- I want specific attributes from the topic and comment models here... --}}
-                {{{ body }}}
+            <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">GitLit Group 5</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <p>Project created by Alex Clayton, Chandler Hoffman, McKenna Lawson, Roman Stigler, and Jeremiah Warren</p>
+                </div>
             </div>
-        </main>
+        </div>
+    </nav>
+    <div class="row justify-content-evenly" style="color:white;">
+        <div class="col-6 bg-primary rounded-4 my-2 vh-100 shadow-lg">
+            <main class="main-placeholder-class-three">
+                {{{ body }}}
+            </main>
+        </div>
     </div>
-    
 </body>
 </html>
-
-{{!-- Not sure if this page is the correct way to work these handlebars... --}}

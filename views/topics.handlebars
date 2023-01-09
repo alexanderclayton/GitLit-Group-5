@@ -1,29 +1,10 @@
-<header>
-    <h2>
-        Topics Main Page
-    </h2>
-    <nav>
-        <button id="login-btn">login</button>
-        <button id="signup-btn">Sign Up</button>
-    </nav>
-</header>
-<body>
-    <div class="topic-placeholder-class-one">
-    {{#each topics as |topic|}}
-        <div class="topic-placeholder-class-two">
-            <h2>
-                {{ topic.title }}
-            </h2>
+{{#each topics as |topic|}}
+    <div class="card w-100 bg-light bg-opacity-75">
+        <h5 class="card-header">{{ topic.author }}</h5>
+        <div class="card-body">
+          <h5 class="card-title">{{ topic.title }}</h5>
+          <p class="card-text">{{ topic.content }}</p>
+          <p class="text-muted" style="font-size: small;">{{ topic.timestamp }}</p>
         </div>
-        <div class="topic-placeholder-class-three">
-            <p> {{topic.username}} </p>
-            <p> {{topic.timestamp}} </p>
-        </div>
-        <div class="topic-placeholder-class-four">
-            <p> {{topic.content}} </p>
-        </div>
-    {{/each}}
     </div>
-</body>
-{{!-- creates a topic thread card for each of the topics in our database with the title of the thread, author, timestamp, and content --}}
-{{!-- For styling, html structure can be adjusted as needed --}}
+{{/each}}
