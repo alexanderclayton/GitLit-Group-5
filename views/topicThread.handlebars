@@ -1,34 +1,25 @@
-{{!-- <div class="topic-card">
-
-    <div class="topic-placeholder-one">
-        <h2>
-            {{ topic.title }}
-        </h2>
-    </div>
-    <div class="topic-placeholder-two">
-        <p> {{ topic.username }} </p>
-        <p> {{ topic.timestamp }} </p>
-    </div>
-    <div class="topic-placeholder-two">
-        <p> {{ topic.content }} </p>
-    </div>
+<div class="row justify-content-evenly vh-100">
+        <div class="col-10 bg-primary rounded-4 my-2 h-90 shadow-lg">
+            <main class="main-placeholder-class-three">
+                <div class="card w-100 bg-light bg-opacity-75 my-2">
+                    <h5 class="card-header">{{ topic.author }}</h5>
+                    <div class="card-body">
+                      <h5 class="card-title">{{ topic.title }}</h5>
+                      <p class="card-text">{{ topic.content }}</p>
+                      <p class="text-muted" style="font-size: small;">{{ topic.timestamp }}</p>
+                    </div>
+                </div>
+                {{#each comments as |comment|}}
+                <div class="card bg-light bg-opacity-75 my-1">
+                    <div class="card-header">
+                      {{ comment.author }}
+                    </div>
+                    <div class="card-body">
+                        <blockquote class="blockquote mb-0"><p>
+                            {{ comment.content  }}
+                        <p></blockquote>
+                    </div>
+                </div>
+                {{/each}}
+            </main>
 </div>
-<div class="comment-cards">
-    {{#each comments as |comment|}}
-        <div class="comment-placeholder-one">
-            <p> {{ comment.content }} </p>
-            <p>--{{ comment.username }}</p>
-            <p> {{ comment.timestamp }}</p>
-        </div>
-    {{/each}}
-</div> --}}
-
-<div>
-    <h2>{{title}}</h2>
-    <p>{{{username}}}</p>
-    <p>{{content}}</p>
-</div>  
-<div>
-    <p>{{comment_username}}</p>
-    <p>{{comment_content}}</p>
-</div>  
