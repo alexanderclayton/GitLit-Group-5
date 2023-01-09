@@ -1,5 +1,6 @@
 const signup = document.getElementById('signup');
 const login = document.getElementById('login');
+const backToMain = document.getElementById('back');
 
 const loginForm = async (event) => {
     event.preventDefault();
@@ -38,7 +39,7 @@ const signupForm = async (event) => {
         });
 
         if (response.ok) {
-            document.location.replace('/')
+            document.location.replace('/thankYou')
         } else {
             alert(response.statusText);
         }
@@ -64,6 +65,13 @@ if(login) {
 // document.getElementById(PLACEHOLDER_LOGOUT_HTML_ID).addEventListener('click', logoutButton);
 if(signup) {
     signup.addEventListener('click', signupForm);
+}
+
+if(backToMain) {
+    backToMain.addEventListener('click', function(e) {
+        e.preventDefault()
+        document.location.replace('/')
+    })
 }
 
 document.getElementById('signup-btn').addEventListener('click', function(e) {
