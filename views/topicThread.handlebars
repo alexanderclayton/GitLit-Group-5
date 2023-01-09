@@ -2,21 +2,21 @@
         <div class="col-10 bg-primary rounded-4 my-2 h-90 shadow-lg">
             <main class="main-placeholder-class-three">
                 <div class="card w-100 bg-light bg-opacity-75 my-2">
-                    <h5 class="card-header">{{ topic.author }}</h5>
+                    <h5 class="card-header">{{ username }}</h5>
                     <div class="card-body">
-                      <h5 class="card-title">{{ topic.title }}</h5>
-                      <p class="card-text">{{ topic.content }}</p>
-                      <p class="text-muted" style="font-size: small;">{{ topic.timestamp }}</p>
+                      <h5 class="card-title">{{ title }}</h5>
+                      <p class="card-text">{{ content }}</p>
+                      <p class="text-muted" style="font-size: small;">{{ timestamp }}</p>
                     </div>
                 </div>
-                {{#each comments as |comment|}}
+                {{#each comments}}
                 <div class="card bg-light bg-opacity-75 my-1">
                     <div class="card-header">
-                      {{ comment.author }}
+                      {{ this.comment_author }}
                     </div>
                     <div class="card-body">
                         <blockquote class="blockquote mb-0"><p>
-                            {{ comment.content  }}
+                            {{ this.comment_content  }}
                         <p></blockquote>
                     </div>
                 </div>

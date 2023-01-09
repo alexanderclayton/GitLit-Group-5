@@ -44,6 +44,9 @@ router.get('/topic/:id', /*withAuth,*/ async (req, res) => {
                             'comment_username',
                             'comment_content',
                         ],
+                    where: {
+                        topic_id: req.params.id
+                    }
                 },
             ],
         });
@@ -52,8 +55,12 @@ router.get('/topic/:id', /*withAuth,*/ async (req, res) => {
 
         res.render('topicThread', {
             ...topic,
+            comments: topic.comments,
             logged_in: req.session.logged_in
         });
+
+        console.log(topic.comments)
+    
     } catch (err) {
         res.status(500).json(err)
     }
