@@ -11,7 +11,7 @@ Comment.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        username: {
+        comment_username: {
             type: DataTypes.STRING,
             allowNull: false,
             references: {
@@ -19,9 +19,10 @@ Comment.init(
                 key: 'username',
             }
         },
-        content: {
+        comment_content: {
             type: DataTypes.STRING,
             allowNull: false,
+            default: 'no comment',
         },
         topic_id: {
             type: DataTypes.INTEGER,
@@ -34,6 +35,7 @@ Comment.init(
     },
     {
         sequelize,
+        freezeTableName: true,
         timestamps: false, /*maybe true?*/
         modelName: 'comment',
     }

@@ -33,18 +33,17 @@ router.get('/thankYou', async (req, res) => {
     res.render('thankYou');
 })
 
-router.get('topic/:id', withAuth, async (req, res) => {
+router.get('/topic/:id', /*withAuth,*/ async (req, res) => {
     try {
         const dbTopicData = await Topic.findByPk(req.params.id, {
             include: [
                 {
-                    model: Topic,
-                    attributes: [
-                        'title',
-                        'username',
-                        'timestamp',
-                        'content',
-                    ],
+                    model: Comment,
+                    attributes: 
+                        [
+                            'comment_username',
+                            'comment_content',
+                        ],
                 },
             ],
         });
