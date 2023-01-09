@@ -24,11 +24,15 @@
 </div> --}}
 
 <div>
-    <h2>{{title}}</h2>
-    <p>{{{username}}}</p>
-    <p>{{content}}</p>
-</div>  
-<div>
-    <p>{{comment_username}}</p>
-    <p>{{comment_content}}</p>
-</div>  
+  <h2>{{title}}</h2>
+  <p>{{{username}}}</p>
+  <p>{{content}}</p>
+</div>
+
+{{#each comments}}
+  <div>
+    <p>{{this.comment_username}}</p>
+    <p>{{this.comment_content}}</p>
+  </div>
+{{/each}}
+
