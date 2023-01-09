@@ -15,10 +15,10 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false,
             unique: true,
-            validate:
-            {
-                // not sure how to validate this
-            }
+            // validate:
+            // {
+            //     // not sure how to validate this
+            // }
         },
         email: {
             type: DataTypes.STRING,

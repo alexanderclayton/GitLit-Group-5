@@ -21,17 +21,30 @@ router.get('/', /*withAuth,*/ async (req, res) => {
     }
 });
 
+router.get('/api/topics', async (req, res) => {
+    try {
+        const topics = await Topic.findAll();
+        res.status(200).json(topics);
+    } catch (err) {
+        res.status(400).json(err)
+    }
+});
+
 router.get('/login', async (req, res) => {
    res.render('login');
-})
+});
 
 router.get('/signup', async (req, res) => {
     res.render('signup');
-})
+});
 
 router.get('/thankYou', async (req, res) => {
     res.render('thankYou');
-})
+});
+
+router.get('/newTopic', withAuth, async (req, res) => {
+    res.render('newTopic');
+});
 
 router.get('/topic/:id', /*withAuth,*/ async (req, res) => {
     try {
