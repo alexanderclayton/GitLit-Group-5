@@ -1,26 +1,26 @@
 <div class="row justify-content-evenly vh-100">
-                    <div class="col-10 bg-primary rounded-4 my-2 h-90 shadow-lg">
-                        <div class="main-placeholder-class-three">
-                            <div class="card w-100 bg-light bg-opacity-75 my-2">
-                                <h5 class="card-header">{{ username }}</h5>
-                                <div class="card-body">
-                                  <h5 class="card-title">{{ title }}</h5>
-                                  <p class="card-text">{{ content }}</p>
-                                  <p class="text-muted" style="font-size: small;">{{ timestamp }}</p>
-                                </div>
-                            </div>
-                            {{#each comments}}
-                            <div class="card bg-light bg-opacity-75 my-1">
-                                <div class="card-header">
-                                  {{ this.comment_author }}
-                                </div>
-                                <div class="card-body">
-                                    <blockquote class="blockquote mb-0"><p>
-                                        {{ this.comment_content  }}
-                                    <p></blockquote>
-                                </div>
-                            </div>
-                            {{/each}}
-                        </div>
-                        <button class="btn btn-secondary" id="comment-btn">Comment</button>
+        <div class="col-10 bg-primary rounded-4 my-2 h-90 shadow-lg">
+            <div class="main-placeholder-class-three">
+                <div class="card w-100 bg-light bg-opacity-75 my-2">
+                    <h5 class="card-header">{{ username }}</h5>
+                    <div class="card-body">
+                      <h5 class="card-title">{{ title }}</h5>
+                      <p class="card-text">{{ content }}</p>
+                      <p class="text-muted" style="font-size: small;">{{ timestamp }}</p>
+                    </div>
+                </div>
+                {{#each comments}}
+                <div class="card bg-light bg-opacity-75 my-1">
+                    <div class="card-header">
+                      {{ comment_username }}
+                    </div>
+                    <div class="card-body">
+                        <blockquote class="blockquote mb-0"><p>
+                            {{ comment_content  }}
+                        <p></blockquote>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+            <button class="btn btn-secondary" id="comment-btn">Comment</button>
 </div>
