@@ -9,17 +9,14 @@ const seedDatabase = async () => {
   await sequelize.sync({ force: true });
 
   const users = await User.bulkCreate(userData, {
-    individualHooks: true,
     returning: true,
   });
 
   const topics = await Topic.bulkCreate(topicData, {
-    individualHooks: true,
     returning: true,
   });
 
   const comments = await Comment.bulkCreate(commentData, {
-    individualHooks: true,
     returning: true,
   });
 

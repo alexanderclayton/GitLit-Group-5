@@ -31,7 +31,7 @@ const newComment = async (event) => {
     const topic_id = event.target.dataset.topic
 
     if (topic_id && content) {
-        const response = await fetch('../api/comments', {
+        const response = await fetch('/api/comments', {
             method: 'POST',
             body: JSON.stringify({ content, topic_id }),
             headers: {'Content-Type': 'application/json'}
@@ -61,7 +61,7 @@ newTopicBtn.addEventListener('click', function(e) {
 });
 }
 
-if(createTopic){
+if(createTopic) {
 createTopic.addEventListener('click', newTopic);
 }
 
