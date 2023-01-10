@@ -2,21 +2,18 @@ const createTopic = document.getElementById('createTopic');
 const newTopicBtn = document.getElementById('newTopic-btn');
 const newCommentBtn = document.getElementById('comment-btn');
 const createComment = document.getElementById('createComment');
+const topicLinks = document.querySelectorAll('.topic-link');
 
 const newTopic = async (event) => {
     event.preventDefault();
 
-    const user = "current user" //need to use the current user for this
-    console.log(user);
     const title = document.getElementById('title').value.trim();
     const content = document.getElementById('content').value.trim();
 
-    console.log(title, user, content)
-
-    if (title && user && content){
+    if (title && content){
         const response = await fetch('api/topics', {
             method: 'POST',
-            body: JSON.stringify({ title, user, content }),
+            body: JSON.stringify({ title, content }),
             headers: {'Content-Type': 'application/json'}
         });
 
@@ -29,18 +26,14 @@ const newTopic = async (event) => {
 };
 
 const newComment = async (event) => {
-    event.preventDefault();
 
-    const user = "test1"  //need to use the current user for this
     const content = document.getElementById('comment-content').value.trim();
-    const topic_id = parseInt(1)  //need to use the current topic for this
+    const topic_id = event.target.dataset.topic
 
-    console.log(user, content, topic_id)
-
-    if (user && content) {
-        const response = await fetch('api/comments', {
+    if (topic_id && content) {
+        const response = await fetch('../api/comments', {
             method: 'POST',
-            body: JSON.stringify({ user, content, topic_id }),
+            body: JSON.stringify({ content, topic_id }),
             headers: {'Content-Type': 'application/json'}
         });
 
@@ -51,6 +44,15 @@ const newComment = async (event) => {
         }
     }
 };
+
+if(topicLinks.length) {
+    topicLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            console.log(e)
+            document.location.replace(`/topic/${e.target.id}`)
+        })
+    })
+}
 
 if(newTopicBtn) {
 newTopicBtn.addEventListener('click', function(e) {

@@ -7,7 +7,7 @@ router.post('/', async (req, res) => {
         const userData = await User.create({ username: name, email: email, password: password});
         //set up password hashing.. maybe
         req.session.save(() => {
-            req.session.user_id = userData.id;
+            req.session.username = userData.username;
             req.session.logged_in = true;
 
             res.status(200).json(userData);
@@ -28,17 +28,8 @@ router.post('/login', async (req, res) => {
             return;
         }
 
-        // const validPassword = await userData.checkPassword(req.body.password);
-
-        // if (!validPassword) {
-        //     res
-        //         .status(400)
-        //         .json({ message: 'Incorrect email or password, please try again :)'});
-        //     return;
-        // }
-
         req.session.save(() => {
-            req.session.user_id = userData.id;
+            req.session.username = userData.username;
             req.session.logged_in = true;
 
             res.json({ user: userData, message: 'Now logged in!' });

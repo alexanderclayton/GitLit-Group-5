@@ -3,8 +3,8 @@ const { Topic } = require('../../models');
 
 router.post('/', async (req, res) => {
     try {
-        const { title, user, content } = req.body
-        const topicData = await Topic.create({ title: title, username: user, content: content });
+        const { title, content } = req.body
+        const topicData = await Topic.create({ title: title, username: req.session.username, content: content });
         req.session.save(() => {
         });
         res.status(200).json(topicData);

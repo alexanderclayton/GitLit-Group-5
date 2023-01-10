@@ -3,12 +3,12 @@ const Topic = require('./Topic');
 const Comment = require('./Comment');
 
 Topic.hasMany(Comment, {
-    foreignKey: 'id',
+    foreignKey: 'id', //issue with the foreign key?
     onDelete: 'cascade'
 });
 
 Comment.belongsTo(Topic, {
-    foreignKey: 'id'
+    foreignKey: 'id' //issue with the foreign key?
 });
 
 User.hasMany(Topic, {

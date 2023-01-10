@@ -2,7 +2,7 @@
     <div class="topic-card card w-100 bg-light bg-opacity-75 my-2">
         <h5 class="card-header">{{ topic.author }}</h5>
         <div class="card-body">
-          <h5 class="card-title" id = {{topic.id}} >{{ topic.title }}</h5>
+          <h5 class="card-title topic-link" id={{topic.id}}>{{ topic.title }}</a></h5>
           <p class="card-text">{{ topic.content }}</p>
           <p class="text-muted" style="font-size: small;">{{ topic.timestamp }}</p>
         </div>

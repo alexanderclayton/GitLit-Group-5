@@ -1,17 +1,17 @@
 [
     {
         "title": "DragonBall Z",
-        "username": "test1",
+        "username": "DBZ Fan",
         "content": "This show is tight!"
     },
     {
         "title": "The X-Files",
-        "username": "test2",
+        "username": "X-Files Fan",
         "content": "This show is also tight!"
     },
     {
         "title": "General Hospital",
-        "username": "test3",
+        "username": "General Hospital Fan",
         "content": "This show is not that tight!"
     }
 ]

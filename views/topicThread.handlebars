@@ -22,5 +22,10 @@
                 </div>
                 {{/each}}
             </div>
-            <button class="btn btn-secondary" id="comment-btn">Comment</button>
+            <div class="d-flex flex-column justify-content-center">
+                <h2 class="mx-auto">What would you like to comment?</h2>
+                <textarea name="Description" id="comment-content" cols="30" rows="4"></textarea>
+                <button class="my-1 btn btn-secondary" data-topic={{id}} id="createComment">Post Comment</button>
+            </div>
+            
 </div>

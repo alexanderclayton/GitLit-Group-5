@@ -1,4 +1,3 @@
-
 const Twitter = require('twitter');
 require('dotenv').config();
 
@@ -14,16 +13,6 @@ var client = new Twitter({
   acccess_token_secret: accessTokenSecret
 });
 
-// client.stream('statuses/filter', {track: 'TV Shows'}, function(stream) {
-//   stream.on('data', function(event) {
-//     console.log(event && event.text);
-//   });
-
-//   stream.on('error', function(error) {
-//     throw error;
-//   });
-// });
-
 _ = require('lodash')
 const isTweet = _.conforms({
   contributors: _.isObject,
@@ -35,13 +24,10 @@ const router = require('express').Router();
 const userRoutes = require('./userRoutes');
 const topicRoutes = require('./topicRoutes');
 const commentRoutes = require('./commentRoutes');
-// const projectRoutes = require('./projectRoutes');
 
 router.use('/users', userRoutes);
 router.use('/topics', topicRoutes);
 router.use('/comments', commentRoutes);
-// router.use('/projects', projectRoutes);
-
 
 module.exports = router;
 

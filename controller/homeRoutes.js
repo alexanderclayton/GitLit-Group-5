@@ -61,31 +61,21 @@ router.get('/comment', withAuth, async (req, res) => {
 
 router.get('/topic/:id', /*withAuth,*/ async (req, res) => {
     try {
-        const dbTopicData = await Topic.findByPk(req.params.id, { //findAll instead of findByPk?
-            include: [
-                {
-                    model: Comment,
-                    attributes: 
-                        [
-                            'comment_username',
-                            'comment_content',
-                        ],
-                    where: {
-                        topic_id: req.params.id
-                    }
-                },
-            ],
+        const dbTopicData = await Topic.findByPk(parseInt(req.params.id));
+
+        const dbComments = await Comment.findAll({
+            where: { topic_id: parseInt(req.params.id) }
         });
 
         const topic = dbTopicData.get({ plain: true });
 
+        const comments = dbComments.map(comment => comment.get({ plain: true }))
+
         res.render('topicThread', {
             ...topic,
-            comments: topic.comments,
+            comments: comments,
             logged_in: req.session.logged_in
         });
-
-        console.log(topic.comments)
     
     } catch (err) {
         res.status(500).json(err)

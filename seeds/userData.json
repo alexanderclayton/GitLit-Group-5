@@ -1,31 +1,31 @@
 [
     {
-        "username": "test1",
+        "username": "DBZ Fan",
         "email": "test1@email.com",
         "password": "test1"
     },
     {
-        "username": "test2",
+        "username": "X-Files Fan",
         "email": "test2@email.com",
         "password": "test2"
     },
     {
-        "username": "test3",
+        "username": "General Hospital Fan",
         "email": "test3@email.com",
         "password": "test3"
     },
     {
-        "username": "test4",
+        "username": "Vegeta",
         "email": "test4@email.com",
         "password": "test4"
     },
     {
-        "username": "test5",
+        "username": "Fox Moulder",
         "email": "test5@email.com",
         "password": "test5"
     },
     {
-        "username": "test6",
+        "username": "Literally Everyone",
         "email": "test6@email.com",
         "password": "test6"
     }  
